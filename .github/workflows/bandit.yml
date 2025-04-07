@@ -21,3 +21,4 @@ jobs:
 
       - name: Run Bandit Scan
         run: bandit -r . -f txt -n 5
+
