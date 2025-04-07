@@ -1,4 +1,4 @@
-name: Bandit Security Scan
+name: Bandit Python Security Scan
 
 on: [push, pull_request]
 
@@ -9,7 +9,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run Bandit
-        uses: tj-actions/bandit@v6
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          targets: "./"
+          python-version: 3.11
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit Scan
+        run: bandit -r . -f txt -n 5
