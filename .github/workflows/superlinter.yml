@@ -1,18 +1,18 @@
-name: Lint Code Base
+name: Super Linter
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Lint Code Base
-        uses: github/super-linter@v5  
+        uses: github/super-linter@v5
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISABLE_GITHUB_STATUS_CHECK: true
+          DISABLE_GITHUB_STATUS_CHECK: true  
