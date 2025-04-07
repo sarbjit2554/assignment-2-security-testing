@@ -5,16 +5,15 @@ on: [push, pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
-    continue-on-error: true  
-
+    continue-on-error: true 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Run Super Linter
+      - name: Lint Code Base
         uses: github/super-linter@v5
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISABLE_GITHUB_STATUS_CHECK: true  
+          DISABLE_GITHUB_STATUS_CHECK: true
