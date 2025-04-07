@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   bandit:
     runs-on: ubuntu-latest
-    continue-on-error: true  
+    continue-on-error: true 
 
     steps:
       - name: Checkout code
