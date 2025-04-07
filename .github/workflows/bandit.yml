@@ -1,3 +1,4 @@
+---
 name: Bandit Python Security Scan
 
 on: [push, pull_request]
@@ -5,7 +6,7 @@ on: [push, pull_request]
 jobs:
   bandit:
     runs-on: ubuntu-latest
-    continue-on-error: true 
+    continue-on-error: true
 
     steps:
       - name: Checkout code
@@ -21,4 +22,3 @@ jobs:
 
       - name: Run Bandit Scan
         run: bandit -r . -f txt -n 5
-
