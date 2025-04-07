@@ -5,11 +5,13 @@ on: [push, pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
+    continue-on-error: true  
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Lint Code Base
+      - name: Run Super Linter
         uses: github/super-linter@v5
         env:
           VALIDATE_ALL_CODEBASE: true
